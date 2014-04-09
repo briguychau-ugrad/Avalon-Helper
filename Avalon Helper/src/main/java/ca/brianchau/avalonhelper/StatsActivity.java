@@ -1,4 +1,4 @@
-package ca.brianchau.easy.avalonhelper;
+package ca.brianchau.avalonhelper;
 
 import android.app.Activity;
 import android.os.Bundle;

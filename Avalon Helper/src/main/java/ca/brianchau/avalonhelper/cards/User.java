@@ -1,6 +1,6 @@
-package ca.brianchau.easy.avalonhelper.cards;
+package ca.brianchau.avalonhelper.cards;
 
-import ca.brianchau.easy.avalonhelper.exceptions.InvalidParameterException;
+import ca.brianchau.avalonhelper.exceptions.InvalidParameterException;
 
 /**
  * Created by Brian on 2014-04-08.

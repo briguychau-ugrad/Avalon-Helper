@@ -1,4 +1,4 @@
-package ca.brianchau.easy.avalonhelper;
+package ca.brianchau.avalonhelper;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,7 +9,7 @@ import android.view.View;
  * Created by Brian on 2014-04-08.
  */
 public class MainActivity extends Activity {
-
+    public static final String SETTINGS = "ca.brianchau.avalonhelper";
     private static MainActivity defaultInstance;
 
     @Override

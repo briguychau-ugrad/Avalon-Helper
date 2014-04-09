@@ -1,4 +1,4 @@
-package ca.brianchau.easy.avalonhelper.exceptions;
+package ca.brianchau.avalonhelper.exceptions;
 
 /**
  * Created by Brian on 2014-04-08.
