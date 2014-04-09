@@ -9,10 +9,13 @@ import android.view.View;
  */
 public class SetupActivity extends Activity {
 
+    private MainActivity core;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup);
+        core = MainActivity.getDefaultInstance();
     }
 
     @Override
