@@ -6,7 +6,10 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
+import java.util.Stack;
+
 import ca.brianchau.avalonhelper.fragments.NumberOfPlayersFragment;
+import ca.brianchau.avalonhelper.fragments.SelectUsersFragment;
 
 /**
  * Created by Brian on 2014-04-08.
@@ -16,6 +19,7 @@ public class SetupActivity extends Activity {
     private MainActivity core;
     private boolean canGoBack;
     private FrameLayout frame;
+    private Stack<Fragment> fragmentStack;
     private int numberOfPlayers;
 
     @Override
@@ -24,24 +28,34 @@ public class SetupActivity extends Activity {
         setContentView(R.layout.activity_setup);
         core = MainActivity.getDefaultInstance();
         frame = (FrameLayout)findViewById(R.id.fl_setup_content);
+        fragmentStack = new Stack<Fragment>();
 
         if (savedInstanceState == null) {
-            Fragment numberOfPlayersFragment = new NumberOfPlayersFragment(this);
+            Fragment numberOfPlayersFragment = new NumberOfPlayersFragment();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.add(R.id.fl_setup_content, numberOfPlayersFragment).addToBackStack(NumberOfPlayersFragment.TAG).commit();
+            fragmentStack.push(numberOfPlayersFragment);
         }
-        canGoBack = true;
+        numberOfPlayers = 0;
     }
 
     @Override
     public void onBackPressed() {
-        if (canGoBack) {
+        fragmentStack.pop();
+        getFragmentManager().popBackStack();
+        if (fragmentStack.empty()) {
             finish();
+        } else {
+            fragmentStack.peek().onResume();
         }
     }
 
     public void finishNumberOfPlayersFragment() {
-        canGoBack = false;
+        fragmentStack.peek().onPause();
+        Fragment selectUsersFragment = new SelectUsersFragment();
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.add(R.id.fl_setup_content, selectUsersFragment).addToBackStack(SelectUsersFragment.TAG).commit();
+        fragmentStack.push(selectUsersFragment);
     }
 
     public void setNumberOfPlayers(int players) {

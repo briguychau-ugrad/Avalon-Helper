@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import ca.brianchau.avalonhelper.cards.User;
-
 /**
  * Created by Brian on 2014-04-08.
  */

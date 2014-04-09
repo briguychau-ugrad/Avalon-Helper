@@ -1,4 +1,4 @@
-package ca.brianchau.avalonhelper.cards;
+package ca.brianchau.avalonhelper;
 
 import ca.brianchau.avalonhelper.exceptions.InvalidParameterException;
 

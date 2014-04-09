@@ -12,8 +12,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
-import ca.brianchau.avalonhelper.cards.User;
-
 /**
  * Created by Brian on 2014-04-08.
  */

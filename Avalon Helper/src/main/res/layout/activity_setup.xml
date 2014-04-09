@@ -20,14 +20,17 @@
             android:id="@+id/rl_number_of_players_fragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:background="#857d71"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/tv_number_of_players_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="@string/number_of_players_select"/>
+                android:textSize="18sp"
+                android:text="@string/number_of_players_select" />
 
             <RelativeLayout
                 android:id="@+id/rl_number_of_players_buttons"
@@ -94,6 +97,21 @@
                     android:text="@string/number_of_players_ten" />
 
             </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_select_users_fragment"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#857d71"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="TESTING" />
 
         </RelativeLayout>
 
