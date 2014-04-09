@@ -4,5 +4,6 @@
     <string name="app_name">Avalon Helper</string>
     <string name="main_copyright_notice">Created by Brian Chau. Not endorsed by Don Eskridge, the creator of The Resistance and Avalon.</string>
     <string name="main_play_button">Start Game</string>
+    <string name="main_stats_button">Statistics</string>
 
 </resources>

@@ -20,6 +20,10 @@
             android:name="ca.brianchau.easy.avalonhelper.SetupActivity"
             android:theme="@android:style/Theme.Black.NoTitleBar">
         </activity>
+        <activity
+            android:name="ca.brianchau.easy.avalonhelper.StatsActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar">
+        </activity>
     </application>
 
 </manifest>
