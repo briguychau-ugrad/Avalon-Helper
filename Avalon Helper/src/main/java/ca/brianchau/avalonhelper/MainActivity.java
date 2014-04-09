@@ -86,6 +86,9 @@ public class MainActivity extends Activity {
     public void saveUsers(List<User> userList) {
         SharedPreferences.Editor editor = getSharedPreferences(SETTINGS, 0).edit();
         Set<String> usernames = new HashSet<String>();
+        for (User u : users) {
+            usernames.add(u.getName());
+        }
         for (User u : userList) {
             String username = u.getName();
             usernames.add(username);

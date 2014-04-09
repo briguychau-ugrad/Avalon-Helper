@@ -121,6 +121,7 @@ public class SetupActivity extends Activity {
         public void add(User object) {
             core.addUser(object);
             map.put(object, true);
+            selectCount++;
             notifyDataSetChanged();
         }
 
@@ -143,6 +144,7 @@ public class SetupActivity extends Activity {
             ((TextView)convertView.findViewById(R.id.tv_select_users_cell_name)).setText(user.getName());
             convertView.findViewById(R.id.cb_select_users_cell_selected).setSelected(map.get(user));
             final CheckBox checkBox = (CheckBox)convertView.findViewById(R.id.cb_select_users_cell_selected);
+            checkBox.setChecked(map.get(user));
             View.OnClickListener listener = new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
