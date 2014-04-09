@@ -11,12 +11,11 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
-import java.util.Date;
-
 import ca.brianchau.avalonhelper.MainActivity;
 import ca.brianchau.avalonhelper.R;
 import ca.brianchau.avalonhelper.SetupActivity;
 import ca.brianchau.avalonhelper.User;
+import ca.brianchau.avalonhelper.dialogs.NewUserDialog;
 
 /**
  * Created by Brian on 2014-04-09.
@@ -64,8 +63,18 @@ public class SelectUsersFragment extends Fragment {
         activity.findViewById(R.id.btn_select_users_new).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                User u = new User("Test" + new Date().getTime());
-                ((SetupActivity.SelectUsersAdapter)usersListView.getAdapter()).add(u);
+                NewUserDialog dialog = new NewUserDialog(activity, new NewUserDialog.NewUserDialogListener() {
+                    @Override
+                    public void onButtonClicked(User u) {
+                        ((SetupActivity.SelectUsersAdapter)usersListView.getAdapter()).add(u);
+                    }
+
+                    @Override
+                    public void onCancelClicked() {
+                        // Do nothing
+                    }
+                });
+                dialog.show();
             }
         });
         okButton = (Button)activity.findViewById(R.id.btn_select_users_ok);

@@ -16,5 +16,8 @@
 
     <string name="select_users_new">New User</string>
     <string name="select_users_ok">OK</string>
+    <string name="new_user_dialog_prompt">New username:</string>
+    <string name="new_user_dialog_ok">OK</string>
+    <string name="new_user_dialog_cancel">Cancel</string>
 
 </resources>

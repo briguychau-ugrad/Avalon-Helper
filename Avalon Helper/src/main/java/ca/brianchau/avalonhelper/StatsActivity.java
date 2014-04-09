@@ -17,11 +17,6 @@ public class StatsActivity extends Activity {
         setContentView(R.layout.activity_stats);
         core = MainActivity.getDefaultInstance();
         String s = "";
-        if (core.users.isEmpty()) {
-            // TODO remove
-            core.users.add(new User("Brian Chau"));
-            core.saveUsers();
-        }
         for (User u : core.users) {
             s += u.getName();
         }
