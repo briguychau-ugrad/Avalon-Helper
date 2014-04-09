@@ -7,7 +7,6 @@ import android.os.Bundle;
  * Created by Brian on 2014-04-08.
  */
 public class SetupActivity extends Activity {
-
     private MainActivity core;
 
     @Override

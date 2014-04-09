@@ -11,25 +11,38 @@ public class User {
     private int losses;
     private boolean good;
     private int streak;
+    private int recent;
 
     public User(String username) {
+        username = username.trim();
         if (username == null || username.equals(""))
             throw new InvalidParameterException("Unable to create a user with no name");
+        if (username.charAt(0) == '_')
+            throw new InvalidParameterException("Username cannot begin with the underscore character.");
         this.username = username;
         wins = 0;
         losses = 0;
         good = true;
         streak = 0;
+        recent = 0;
     }
 
-    public User(String username, int wins, int losses, boolean good, int streak) {
+    public User(String username, int wins, int losses, boolean good, int streak, int recent) {
+        username = username.trim();
         if (username == null || username.equals(""))
             throw new InvalidParameterException("Unable to create a user with no name");
+        if (username.charAt(0) == '_')
+            throw new InvalidParameterException("Username cannot begin with the underscore character.");
         this.username = username;
         this.wins = wins;
         this.losses = losses;
         this.good = good;
         this.streak = streak;
+        this.recent = recent;
+    }
+
+    public String getName() {
+        return username;
     }
 
     public int getWins() {
@@ -42,6 +55,10 @@ public class User {
 
     public int getStreak() {
         return streak;
+    }
+
+    public int getRecent() {
+        return recent;
     }
 
     public boolean getGood() {
@@ -68,6 +85,7 @@ public class User {
             }
             losses++;
         }
+        recent = 0;
     }
 
     @Override

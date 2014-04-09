@@ -2,24 +2,39 @@ package ca.brianchau.avalonhelper;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
+
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
+
+import ca.brianchau.avalonhelper.cards.User;
 
 /**
  * Created by Brian on 2014-04-08.
  */
 public class MainActivity extends Activity {
     public static final String SETTINGS = "ca.brianchau.avalonhelper";
+    public static final String SETTINGS_USERS = "users";
+    public static final String SETTINGS_PREFIX_WIN = "_win_";
+    public static final String SETTINGS_PREFIX_LOSS = "_loss_";
+    public static final String SETTINGS_PREFIX_GOOD = "_good_";
+    public static final String SETTINGS_PREFIX_STREAK = "_streak_";
+    public static final String SETTINGS_PREFIX_RECENT = "_recent_";
+    private static final int ERROR = 1<<31;
+
     private static MainActivity defaultInstance;
+
+    public List<User> users;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (defaultInstance == null) {
-            defaultInstance = this;
-        } else {
-            throw new RuntimeException("Oops");
-        }
+        defaultInstance = this;
         setContentView(R.layout.activity_main);
         findViewById(R.id.btn_main_play).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,6 +50,39 @@ public class MainActivity extends Activity {
                 startActivity(i);
             }
         });
+        users = new LinkedList<User>();
+        SharedPreferences preferences = getSharedPreferences(SETTINGS, 0);
+        Set<String> usernames = preferences.getStringSet(SETTINGS_USERS, null);
+        if (usernames != null) {
+            for (String s : usernames) {
+                int wins = preferences.getInt(SETTINGS_PREFIX_WIN + s, ERROR);
+                int losses = preferences.getInt(SETTINGS_PREFIX_LOSS + s, ERROR);
+                int streak = preferences.getInt(SETTINGS_PREFIX_STREAK + s, ERROR);
+                int recent = preferences.getInt(SETTINGS_PREFIX_RECENT + s, ERROR);
+                boolean good = preferences.getBoolean(SETTINGS_PREFIX_GOOD + s, true);
+                if (wins == ERROR || losses == ERROR || streak == ERROR || recent == ERROR) {
+                   Toast.makeText(this, "Unable to retrieve stats for " + s, Toast.LENGTH_LONG).show();
+                    continue;
+                }
+                users.add(new User(s, wins, losses, good, streak, recent));
+            }
+        }
+    }
+
+    public void saveUsers() {
+        SharedPreferences.Editor editor = getSharedPreferences(SETTINGS, 0).edit();
+        Set<String> usernames = new HashSet<String>();
+        for (User u : users) {
+            String username = u.getName();
+            usernames.add(username);
+            editor.putInt(SETTINGS_PREFIX_WIN + username, u.getWins());
+            editor.putInt(SETTINGS_PREFIX_LOSS + username, u.getLosses());
+            editor.putInt(SETTINGS_PREFIX_STREAK + username, u.getStreak());
+            editor.putInt(SETTINGS_PREFIX_RECENT + username, u.getRecent());
+            editor.putBoolean(SETTINGS_PREFIX_GOOD + username, u.getGood());
+        }
+        editor.putStringSet(SETTINGS_USERS, usernames);
+        editor.commit();
     }
 
     @Override
