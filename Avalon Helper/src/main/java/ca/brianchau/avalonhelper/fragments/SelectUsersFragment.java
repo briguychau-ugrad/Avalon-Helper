@@ -7,11 +7,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
+
+import java.util.Date;
 
 import ca.brianchau.avalonhelper.MainActivity;
 import ca.brianchau.avalonhelper.R;
 import ca.brianchau.avalonhelper.SetupActivity;
+import ca.brianchau.avalonhelper.User;
 
 /**
  * Created by Brian on 2014-04-09.
@@ -21,6 +26,8 @@ public class SelectUsersFragment extends Fragment {
     private MainActivity core;
     private SetupActivity activity;
     private RelativeLayout layout;
+    private ListView usersListView;
+    private Button okButton;
 
     @Override
     public void onAttach(Activity activity) {
@@ -47,12 +54,29 @@ public class SelectUsersFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         Log.i(TAG, "onActivityCreated");
         layout = (RelativeLayout)activity.findViewById(R.id.rl_select_users_fragment);
+        usersListView = (ListView)activity.findViewById(R.id.lv_select_users_all);
     }
 
     @Override
     public void onStart() {
         super.onStart();
         Log.i(TAG, "onStart");
+        activity.findViewById(R.id.btn_select_users_new).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                User u = new User("Test" + new Date().getTime());
+                ((SetupActivity.SelectUsersAdapter)usersListView.getAdapter()).add(u);
+            }
+        });
+        okButton = (Button)activity.findViewById(R.id.btn_select_users_ok);
+        okButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO
+            }
+        });
+        okButton.setEnabled(false);
+        activity.updateSelectUsersList(usersListView);
     }
 
     @Override
@@ -74,5 +98,4 @@ public class SelectUsersFragment extends Fragment {
         super.onStop();
         Log.i(TAG, "onStop");
     }
-
 }

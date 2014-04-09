@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -60,12 +62,23 @@ public class MainActivity extends Activity {
                 int recent = preferences.getInt(SETTINGS_PREFIX_RECENT + s, ERROR);
                 boolean good = preferences.getBoolean(SETTINGS_PREFIX_GOOD + s, true);
                 if (wins == ERROR || losses == ERROR || streak == ERROR || recent == ERROR) {
-                   Toast.makeText(this, "Unable to retrieve stats for " + s, Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Unable to retrieve stats for " + s, Toast.LENGTH_LONG).show();
                     continue;
                 }
                 users.add(new User(s, wins, losses, good, streak, recent));
             }
+            sortUsers();
         }
+    }
+
+    public boolean addUser(User user) {
+        if (users.contains(user)) {
+            return false;
+        }
+        users.add(user);
+        saveUsers();
+        sortUsers();
+        return true;
     }
 
     public void saveUsers() {
@@ -82,6 +95,15 @@ public class MainActivity extends Activity {
         }
         editor.putStringSet(SETTINGS_USERS, usernames);
         editor.commit();
+    }
+
+    public void sortUsers() {
+        Collections.sort(users, new Comparator<User>() {
+            @Override
+            public int compare(User user, User user2) {
+                return user.getName().compareTo(user2.getName());
+            }
+        });
     }
 
     @Override

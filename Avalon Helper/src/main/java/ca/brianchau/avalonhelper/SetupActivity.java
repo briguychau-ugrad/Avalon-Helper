@@ -3,9 +3,19 @@ package ca.brianchau.avalonhelper;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
+import android.widget.ListView;
+import android.widget.TextView;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Stack;
 
 import ca.brianchau.avalonhelper.fragments.NumberOfPlayersFragment;
@@ -50,6 +60,21 @@ public class SetupActivity extends Activity {
         }
     }
 
+    public void updateSelectUsersList(ListView view) {
+        core.sortUsers();
+        User[] users = new User[core.users.size()];
+        core.users.toArray(users);
+        ArrayAdapter<User> userArrayAdapter = new SelectUsersAdapter(this, R.layout.cell_view_select_users, R.id.tv_select_users_cell_name);
+        view.setAdapter(userArrayAdapter);
+        view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Log.i(TAG, "onItemClick");
+                ((SelectUsersAdapter)adapterView.getAdapter()).updateItem(i);
+            }
+        });
+    }
+
     public void finishNumberOfPlayersFragment() {
         fragmentStack.peek().onPause();
         Fragment selectUsersFragment = new SelectUsersFragment();
@@ -60,5 +85,55 @@ public class SetupActivity extends Activity {
 
     public void setNumberOfPlayers(int players) {
         this.numberOfPlayers = players;
+    }
+
+    public class SelectUsersAdapter extends ArrayAdapter<User> {
+
+        Map<User, Boolean> map = new HashMap<User, Boolean>();
+        int selectCount;
+
+        public SelectUsersAdapter(Context context, int resource, int textViewResourceId) {
+            super(context, resource, textViewResourceId);
+            core.sortUsers();
+            for (User u : core.users) {
+                map.put(u, false);
+            }
+        }
+
+        public void updateItem(int index) {
+            User user = core.users.get(index);
+            boolean selected = !map.get(user);
+            selectCount += selected ? 1 : -1;
+            map.put(user, selected);
+            findViewById(R.id.btn_select_users_ok).setEnabled(selectCount == numberOfPlayers);
+        }
+
+        @Override
+        public void add(User object) {
+            core.addUser(object);
+            map.put(object, true);
+            notifyDataSetChanged();
+        }
+
+        @Override
+        public boolean hasStableIds() {
+            return false;
+        }
+
+        @Override
+        public int getCount() {
+            return core.users.size();
+        }
+
+        @Override
+        public View getView (int position, View convertView, ViewGroup parent) {
+            if (convertView == null) {
+                convertView = getLayoutInflater().inflate(R.layout.cell_view_select_users, null);
+            }
+            User user = core.users.get(position);
+            ((TextView)convertView.findViewById(R.id.tv_select_users_cell_name)).setText(user.getName());
+            convertView.findViewById(R.id.cb_select_users_cell_selected).setSelected(map.get(user));
+            return convertView;
+        }
     }
 }
