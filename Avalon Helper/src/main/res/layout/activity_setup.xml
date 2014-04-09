@@ -4,11 +4,99 @@
     android:layout_height="match_parent"
     android:background="#857d71">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="50sp"
-        android:layout_centerInParent="true"
-        android:text="TESTING" />
+    <ca.brianchau.avalonhelper.views.Navbar
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#000000">
+    </ca.brianchau.avalonhelper.views.Navbar>
+
+    <FrameLayout
+        android:id="@+id/fl_setup_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="40dp">
+
+        <RelativeLayout
+            android:id="@+id/rl_number_of_players_fragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/tv_number_of_players_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/number_of_players_select"/>
+
+            <RelativeLayout
+                android:id="@+id/rl_number_of_players_buttons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/tv_number_of_players_text"
+                android:layout_marginTop="25dp">
+
+                <Button
+                    android:id="@+id/btn_number_of_players_five"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:textSize="48sp"
+                    android:text="@string/number_of_players_five" />
+
+                <Button
+                    android:id="@+id/btn_number_of_players_six"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_toRightOf="@id/btn_number_of_players_five"
+                    android:textSize="48sp"
+                    android:text="@string/number_of_players_six" />
+
+                <Button
+                    android:id="@+id/btn_number_of_players_seven"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_below="@id/btn_number_of_players_five"
+                    android:textSize="48sp"
+                    android:text="@string/number_of_players_seven" />
+
+                <Button
+                    android:id="@+id/btn_number_of_players_eight"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_toRightOf="@id/btn_number_of_players_five"
+                    android:layout_below="@id/btn_number_of_players_five"
+                    android:textSize="48sp"
+                    android:text="@string/number_of_players_eight" />
+
+                <Button
+                    android:id="@+id/btn_number_of_players_nine"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_below="@id/btn_number_of_players_seven"
+                    android:textSize="48sp"
+                    android:text="@string/number_of_players_nine" />
+
+                <Button
+                    android:id="@+id/btn_number_of_players_ten"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_toRightOf="@id/btn_number_of_players_seven"
+                    android:layout_below="@id/btn_number_of_players_seven"
+                    android:textSize="48sp"
+                    android:text="@string/number_of_players_ten" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </FrameLayout>
 
 </RelativeLayout>

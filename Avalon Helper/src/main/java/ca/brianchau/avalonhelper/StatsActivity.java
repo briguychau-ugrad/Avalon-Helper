@@ -10,6 +10,7 @@ import ca.brianchau.avalonhelper.cards.User;
  * Created by Brian on 2014-04-08.
  */
 public class StatsActivity extends Activity {
+    public static final String TAG = "StatsActivity";
     private MainActivity core;
 
     @Override
@@ -27,5 +28,10 @@ public class StatsActivity extends Activity {
             s += u.getName();
         }
         ((TextView) findViewById(R.id.tv_stats_temp)).setText(s);
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 }

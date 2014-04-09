@@ -6,4 +6,12 @@
     <string name="main_play_button">Start Game</string>
     <string name="main_stats_button">Statistics</string>
 
+    <string name="number_of_players_select">How many players are there?</string>
+    <string name="number_of_players_five">5</string>
+    <string name="number_of_players_six">6</string>
+    <string name="number_of_players_seven">7</string>
+    <string name="number_of_players_eight">8</string>
+    <string name="number_of_players_nine">9</string>
+    <string name="number_of_players_ten">10</string>
+
 </resources>

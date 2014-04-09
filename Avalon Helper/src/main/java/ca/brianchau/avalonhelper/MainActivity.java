@@ -18,6 +18,7 @@ import ca.brianchau.avalonhelper.cards.User;
  * Created by Brian on 2014-04-08.
  */
 public class MainActivity extends Activity {
+    public static final String TAG = "MainActivity";
     public static final String SETTINGS = "ca.brianchau.avalonhelper";
     public static final String SETTINGS_USERS = "users";
     public static final String SETTINGS_PREFIX_WIN = "_win_";
