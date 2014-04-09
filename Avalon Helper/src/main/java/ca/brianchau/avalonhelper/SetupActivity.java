@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -100,12 +101,12 @@ public class SetupActivity extends Activity {
             }
         }
 
-        public void updateItem(int index) {
+        public boolean updateItem(int index) {
             User user = core.users.get(index);
             boolean selected = !map.get(user);
             selectCount += selected ? 1 : -1;
             map.put(user, selected);
-            findViewById(R.id.btn_select_users_ok).setEnabled(selectCount == numberOfPlayers);
+            return selected;
         }
 
         @Override
@@ -126,13 +127,23 @@ public class SetupActivity extends Activity {
         }
 
         @Override
-        public View getView (int position, View convertView, ViewGroup parent) {
+        public View getView (final int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
                 convertView = getLayoutInflater().inflate(R.layout.cell_view_select_users, null);
             }
             User user = core.users.get(position);
             ((TextView)convertView.findViewById(R.id.tv_select_users_cell_name)).setText(user.getName());
             convertView.findViewById(R.id.cb_select_users_cell_selected).setSelected(map.get(user));
+            final CheckBox checkBox = (CheckBox)convertView.findViewById(R.id.cb_select_users_cell_selected);
+            View.OnClickListener listener = new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    checkBox.setChecked(updateItem(position));
+                    findViewById(R.id.btn_select_users_ok).setEnabled(selectCount == numberOfPlayers);
+                }
+            };
+            convertView.setOnClickListener(listener);
+            checkBox.setOnClickListener(listener);
             return convertView;
         }
     }
