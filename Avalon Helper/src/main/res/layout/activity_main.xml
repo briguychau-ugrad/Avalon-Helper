@@ -1,12 +1,28 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_main_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#857d71"
     tools:context="${packageName}.${activityClass}">
 
-    <TextView
-        android:text="@string/hello_world"
+    <ImageView
+        android:id="@+id/iv_main_title"
+        android:src="@drawable/avalon_title"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+
+    <TextView
+        android:id="@+id/tv_main_copyright_notice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:textColor="#ffffff"
+        android:text="@string/copyright_notice"/>
 
 </RelativeLayout>

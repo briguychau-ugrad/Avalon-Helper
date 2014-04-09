@@ -2,6 +2,6 @@
 <resources>
 
     <string name="app_name">Avalon Helper</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="copyright_notice">Created by Brian Chau. Not endorsed by the Resistance or Avalon games.</string>
 
 </resources>
