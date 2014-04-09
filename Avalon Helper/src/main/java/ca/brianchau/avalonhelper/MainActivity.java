@@ -76,15 +76,17 @@ public class MainActivity extends Activity {
             return false;
         }
         users.add(user);
-        saveUsers();
+        List<User> userList = new LinkedList<User>();
+        userList.add(user);
+        saveUsers(userList);
         sortUsers();
         return true;
     }
 
-    public void saveUsers() {
+    public void saveUsers(List<User> userList) {
         SharedPreferences.Editor editor = getSharedPreferences(SETTINGS, 0).edit();
         Set<String> usernames = new HashSet<String>();
-        for (User u : users) {
+        for (User u : userList) {
             String username = u.getName();
             usernames.add(username);
             editor.putInt(SETTINGS_PREFIX_WIN + username, u.getWins());

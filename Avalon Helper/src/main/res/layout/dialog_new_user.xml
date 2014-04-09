@@ -17,7 +17,7 @@
         android:layout_height="20dp"
         android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"
-        android:textColor="#ff0000" />
+        android:textColor="#ff3333" />
 
     <EditText
         android:id="@+id/et_new_username"
@@ -26,6 +26,7 @@
         android:layout_marginTop="65dp"
         android:layout_centerHorizontal="true"
         android:textColor="#ffffff"
+        android:singleLine="true"
         android:background="#555555"/>
 
     <LinearLayout

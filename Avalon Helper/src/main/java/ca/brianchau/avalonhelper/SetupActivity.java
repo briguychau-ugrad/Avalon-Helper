@@ -20,6 +20,7 @@ import java.util.Map;
 import java.util.Stack;
 
 import ca.brianchau.avalonhelper.fragments.NumberOfPlayersFragment;
+import ca.brianchau.avalonhelper.fragments.SelectCardsFragment;
 import ca.brianchau.avalonhelper.fragments.SelectUsersFragment;
 
 /**
@@ -76,6 +77,10 @@ public class SetupActivity extends Activity {
         });
     }
 
+    public void setNumberOfPlayers(int players) {
+        this.numberOfPlayers = players;
+    }
+
     public void finishNumberOfPlayersFragment() {
         fragmentStack.peek().onPause();
         Fragment selectUsersFragment = new SelectUsersFragment();
@@ -84,12 +89,15 @@ public class SetupActivity extends Activity {
         fragmentStack.push(selectUsersFragment);
     }
 
-    public void setNumberOfPlayers(int players) {
-        this.numberOfPlayers = players;
+    public void finishSelectUsersFragment() {
+        fragmentStack.peek().onPause();
+        Fragment selectCardsFragment = new SelectCardsFragment();
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.add(R.id.fl_setup_content, selectCardsFragment).addToBackStack(SelectCardsFragment.TAG).commit();
+        fragmentStack.push(selectCardsFragment);
     }
 
     public class SelectUsersAdapter extends ArrayAdapter<User> {
-
         Map<User, Boolean> map = new HashMap<User, Boolean>();
         int selectCount;
 

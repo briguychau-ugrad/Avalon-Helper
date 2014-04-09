@@ -7,26 +7,20 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import ca.brianchau.avalonhelper.MainActivity;
 import ca.brianchau.avalonhelper.R;
 import ca.brianchau.avalonhelper.SetupActivity;
-import ca.brianchau.avalonhelper.User;
-import ca.brianchau.avalonhelper.dialogs.NewUserDialog;
 
 /**
  * Created by Brian on 2014-04-09.
  */
-public class SelectUsersFragment extends Fragment {
-    public static final String TAG = "SelectUsersFragment";
+public class SelectCardsFragment extends Fragment {
+    public static final String TAG = "SelectCardsFragment";
     private MainActivity core;
     private SetupActivity activity;
     private RelativeLayout layout;
-    private ListView usersListView;
-    private Button okButton;
 
     @Override
     public void onAttach(Activity activity) {
@@ -52,40 +46,13 @@ public class SelectUsersFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         Log.i(TAG, "onActivityCreated");
-        layout = (RelativeLayout)activity.findViewById(R.id.rl_select_users_fragment);
-        usersListView = (ListView)activity.findViewById(R.id.lv_select_users_all);
+        layout = (RelativeLayout)activity.findViewById(R.id.rl_select_cards_fragment);
     }
 
     @Override
     public void onStart() {
         super.onStart();
         Log.i(TAG, "onStart");
-        activity.findViewById(R.id.btn_select_users_new).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NewUserDialog dialog = new NewUserDialog(activity, new NewUserDialog.NewUserDialogListener() {
-                    @Override
-                    public void onButtonClicked(User u) {
-                        ((SetupActivity.SelectUsersAdapter)usersListView.getAdapter()).add(u);
-                    }
-
-                    @Override
-                    public void onCancelClicked() {
-                        // Do nothing
-                    }
-                });
-                dialog.show();
-            }
-        });
-        okButton = (Button)activity.findViewById(R.id.btn_select_users_ok);
-        okButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                activity.finishSelectUsersFragment();
-            }
-        });
-        okButton.setEnabled(false);
-        activity.updateSelectUsersList(usersListView);
     }
 
     @Override
