@@ -16,6 +16,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Stack;
 
@@ -33,6 +35,7 @@ public class SetupActivity extends Activity {
     private FrameLayout frame;
     private Stack<Fragment> fragmentStack;
     private int numberOfPlayers;
+    private SelectUsersAdapter userArrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,17 +65,17 @@ public class SetupActivity extends Activity {
         }
     }
 
-    public void updateSelectUsersList(ListView view) {
+    public void createSelectUsersList(ListView view) {
         core.sortUsers();
         User[] users = new User[core.users.size()];
         core.users.toArray(users);
-        ArrayAdapter<User> userArrayAdapter = new SelectUsersAdapter(this, R.layout.cell_view_select_users, R.id.tv_select_users_cell_name);
+        userArrayAdapter = new SelectUsersAdapter(this, R.layout.cell_view_select_users, R.id.tv_select_users_cell_name);
         view.setAdapter(userArrayAdapter);
         view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Log.i(TAG, "onItemClick");
-                ((SelectUsersAdapter)adapterView.getAdapter()).updateItem(i);
+                userArrayAdapter.updateItem(i);
             }
         });
     }
@@ -95,11 +98,18 @@ public class SetupActivity extends Activity {
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.add(R.id.fl_setup_content, selectCardsFragment).addToBackStack(SelectCardsFragment.TAG).commit();
         fragmentStack.push(selectCardsFragment);
+
+        core.gameUsers = new LinkedList<User>();
+        for (User u : userArrayAdapter.map.keySet()) {
+            if (userArrayAdapter.map.get(u)) {
+                core.gameUsers.add(u);
+            }
+        }
     }
 
     public class SelectUsersAdapter extends ArrayAdapter<User> {
-        Map<User, Boolean> map = new HashMap<User, Boolean>();
-        int selectCount;
+        public Map<User, Boolean> map = new HashMap<User, Boolean>();
+        private int selectCount;
 
         public SelectUsersAdapter(Context context, int resource, int textViewResourceId) {
             super(context, resource, textViewResourceId);

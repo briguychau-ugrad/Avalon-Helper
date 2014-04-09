@@ -132,7 +132,174 @@
         <RelativeLayout
             android:id="@+id/rl_select_cards_fragment"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="fill_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:id="@+id/ll_card_selections"
+                android:layout_width="fill_parent"
+                android:layout_height="70dp"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_card_selected_good"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#0033ff"
+                    android:textSize="32sp"
+                    android:text="0/6" />
+
+                <TextView
+                    android:id="@+id/tv_card_selected_evil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="100dp"
+                    android:textColor="#ff0000"
+                    android:textSize="32sp"
+                    android:text="0/4" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_card_buttons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ll_card_selections">
+
+                <Button
+                    android:id="@+id/btn_card_merlin"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:textColor="#0033ff"
+                    android:textSize="24sp"
+                    android:text="Merlin" />
+
+                <Button
+                    android:id="@+id/btn_card_percival"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_toRightOf="@id/btn_card_merlin"
+                    android:textColor="#0033ff"
+                    android:textSize="20sp"
+                    android:text="Percival" />
+
+                <Button
+                    android:id="@+id/btn_card_rick_james"
+                    android:layout_width="200dp"
+                    android:layout_height="100dp"
+                    android:layout_toRightOf="@id/btn_card_percival"
+                    android:textColor="#0033ff"
+                    android:textSize="24sp"
+                    android:text="Rick and James" />
+
+                <Button
+                    android:id="@+id/btn_card_jheri"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/btn_card_merlin"
+                    android:textColor="#0033ff"
+                    android:textSize="24sp"
+                    android:text="Jheri" />
+
+                <Button
+                    android:id="@+id/btn_card_infiltrator"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_toRightOf="@id/btn_card_jheri"
+                    android:layout_below="@id/btn_card_merlin"
+                    android:textColor="#0033ff"
+                    android:textSize="18sp"
+                    android:text="Infiltrator" />
+
+                <Button
+                    android:id="@+id/btn_card_servant"
+                    android:layout_width="200dp"
+                    android:layout_height="100dp"
+                    android:layout_toRightOf="@id/btn_card_infiltrator"
+                    android:layout_below="@id/btn_card_merlin"
+                    android:textColor="#0033ff"
+                    android:textSize="20sp"
+                    android:text="Loyal Servant of Arthur" />
+
+                <Button
+                    android:id="@+id/btn_card_mordred"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/btn_card_jheri"
+                    android:textColor="#ff0000"
+                    android:textSize="18sp"
+                    android:text="Mordred" />
+
+                <Button
+                    android:id="@+id/btn_card_morgana"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_toRightOf="@id/btn_card_mordred"
+                    android:layout_below="@id/btn_card_jheri"
+                    android:textColor="#ff0000"
+                    android:textSize="18sp"
+                    android:text="Morgana" />
+
+                <Button
+                    android:id="@+id/btn_card_lancelot"
+                    android:layout_width="200dp"
+                    android:layout_height="100dp"
+                    android:layout_toRightOf="@id/btn_card_morgana"
+                    android:layout_below="@id/btn_card_jheri"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:text="Good and Evil Lancelots" />
+
+                <Button
+                    android:id="@+id/btn_card_oberon"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/btn_card_mordred"
+                    android:textColor="#ff0000"
+                    android:textSize="18sp"
+                    android:text="Oberon" />
+
+                <Button
+                    android:id="@+id/btn_card_assassin"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_toRightOf="@id/btn_card_oberon"
+                    android:layout_below="@id/btn_card_mordred"
+                    android:textColor="#ff0000"
+                    android:textSize="18sp"
+                    android:text="Assassin" />
+
+                <Button
+                    android:id="@+id/btn_card_minion"
+                    android:layout_width="200dp"
+                    android:layout_height="100dp"
+                    android:layout_toRightOf="@id/btn_card_assassin"
+                    android:layout_below="@id/btn_card_mordred"
+                    android:textColor="#ff0000"
+                    android:textSize="24sp"
+                    android:text="Minion of Mordred" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl_card_buttons"
+                android:layout_centerHorizontal="true">
+
+                <Button
+                    android:id="@+id/btn_select_cards_info"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:text="@string/select_cards_info" />
+
+                <Button
+                    android:id="@+id/btn_select_cards_ok"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_toRightOf="@id/btn_select_cards_info"
+                    android:text="@string/select_cards_ok" />
+
+            </RelativeLayout>
 
         </RelativeLayout>
 

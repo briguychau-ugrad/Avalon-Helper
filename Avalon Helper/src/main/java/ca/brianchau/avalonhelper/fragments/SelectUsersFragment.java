@@ -85,7 +85,7 @@ public class SelectUsersFragment extends Fragment {
             }
         });
         okButton.setEnabled(false);
-        activity.updateSelectUsersList(usersListView);
+        activity.createSelectUsersList(usersListView);
     }
 
     @Override

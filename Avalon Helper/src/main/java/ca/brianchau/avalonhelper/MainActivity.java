@@ -31,6 +31,7 @@ public class MainActivity extends Activity {
     private static MainActivity defaultInstance;
 
     public List<User> users;
+    public List<User> gameUsers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
