@@ -40,6 +40,8 @@ public class MainActivity extends Activity {
     public List<Card> gameCards;
     public int numberOfPlayers;
     public List<Boolean> missionResults;
+    public boolean missionWin;
+    public boolean merlinGuess;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

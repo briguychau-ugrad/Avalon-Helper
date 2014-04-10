@@ -44,4 +44,10 @@
     <string name="game_mission_select">Select %d players for this mission</string>
     <string name="game_mission_players">%d player mission</string>
 
+    <string name="end_game_merlin_guess_correct">Merlin was correctly guessed</string>
+    <string name="end_game_merlin_guess_incorrect">Merlin was not correctly guessed</string>
+    <string name="end_game_good">The winners are the Loyal Servants of Arthur</string>
+    <string name="end_game_evil">The winners are the Minions of Mordred</string>
+    <string name="end_game_ok">OK</string>
+
 </resources>

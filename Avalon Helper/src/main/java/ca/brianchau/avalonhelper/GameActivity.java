@@ -200,9 +200,15 @@ public class GameActivity extends Activity {
     }
 
     public void endGame(boolean win) {
-        Intent i = new Intent(getApplicationContext(), EndGameActivity.class);
-        startActivity(i);
-        finish();
+        core.missionWin = win;
+        core.merlinGuess = false;
+        if (win) {
+            Intent i = new Intent(getApplicationContext(), EndGameActivity.class);
+            startActivity(i);
+            finish();
+        } else {
+            // Merlin Guessing
+        }
     }
 
     @Override

@@ -4,12 +4,107 @@
     android:layout_height="match_parent"
     android:background="#857d71">
 
-    <TextView
-        android:id="@+id/tv_stats_temp"
+    <LinearLayout
+        android:id="@+id/ll_end_game_missions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="50sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp">
+
+        <View
+            android:id="@+id/view_end_game_mission1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="5dp"
+            android:background="#333333"></View>
+
+        <View
+            android:id="@+id/view_end_game_mission2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="5dp"
+            android:background="#333333"></View>
+
+        <View
+            android:id="@+id/view_end_game_mission3"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="5dp"
+            android:background="#333333"></View>
+
+        <View
+            android:id="@+id/view_end_game_mission4"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="5dp"
+            android:background="#333333"></View>
+
+        <View
+            android:id="@+id/view_end_game_mission5"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="5dp"
+            android:background="#333333"></View>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_end_game_merlin_guess_correct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/ll_end_game_missions"
+        android:padding="10dp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textSize="20sp"
+        android:textColor="#ff0000"
+        android:text="@string/end_game_merlin_guess_correct" />
+
+    <TextView
+        android:id="@+id/tv_end_game_merlin_guess_incorrect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/ll_end_game_missions"
+        android:padding="10dp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textSize="20sp"
+        android:textColor="#0033ff"
+        android:text="@string/end_game_merlin_guess_incorrect" />
+
+    <TextView
+        android:id="@+id/tv_end_game_good"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="TESTING" />
+        android:padding="30dp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textSize="30sp"
+        android:textColor="#0033ff"
+        android:text="@string/end_game_good" />
+
+    <TextView
+        android:id="@+id/tv_end_game_evil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:padding="30dp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textSize="30sp"
+        android:textColor="#ff0000"
+        android:text="@string/end_game_evil" />
+
+    <Button
+        android:id="@+id/btn_end_game_ok"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:text="@string/end_game_ok" />
 
 </RelativeLayout>
