@@ -1,0 +1,13 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="50dp">
+
+    <Button
+        android:id="@+id/btn_guess_merlin_cell_name"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_centerVertical="true"
+        android:gravity="center" />
+
+</RelativeLayout>

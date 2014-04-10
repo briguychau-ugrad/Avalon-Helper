@@ -231,13 +231,14 @@ public class GameActivity extends Activity {
     public void endGame(boolean win) {
         core.missionWin = win;
         core.merlinGuess = false;
+        Intent i;
         if (!win || !core.gameCards.contains(Card.MERLIN)) {
-            Intent i = new Intent(getApplicationContext(), EndGameActivity.class);
-            startActivity(i);
-            finish();
+            i = new Intent(getApplicationContext(), EndGameActivity.class);
         } else {
-            // MERLIN GUESSING
+            i = new Intent(getApplicationContext(), MerlinGuessActivity.class);
         }
+        startActivity(i);
+        finish();
     }
 
     @Override

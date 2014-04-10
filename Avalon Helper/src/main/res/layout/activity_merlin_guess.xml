@@ -1,0 +1,39 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_stats_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#857d71">
+
+    <TextView
+        android:id="@+id/tv_merlin_guess_minions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textSize="30sp"
+        android:textColor="#ff0000"/>
+
+    <TextView
+        android:id="@+id/tv_merlin_guess_who"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_merlin_guess_minions"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textSize="20sp"
+        android:textColor="#0033ff"
+        android:text="@string/merlin_guess_who"/>
+
+    <ListView
+        android:id="@+id/lv_merlin_guess_list"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tv_merlin_guess_who">
+
+    </ListView>
+
+</RelativeLayout>
