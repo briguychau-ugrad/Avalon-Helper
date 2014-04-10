@@ -24,4 +24,8 @@
     <string name="new_user_dialog_ok">OK</string>
     <string name="new_user_dialog_cancel">Cancel</string>
 
+    <string name="deal_cards_pass_to">Pass the device to:</string>
+    <string name="deal_cards_ok">OK</string>
+    <string name="deal_cards_you_are">You are:</string>
+
 </resources>

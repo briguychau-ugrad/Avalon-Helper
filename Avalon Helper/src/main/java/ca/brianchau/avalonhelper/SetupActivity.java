@@ -39,9 +39,6 @@ public class SetupActivity extends Activity {
     private SelectUsersAdapter userArrayAdapter;
     public Set<Card> cards;
 
-    public SetupActivity() {
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

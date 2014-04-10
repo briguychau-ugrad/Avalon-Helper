@@ -9,9 +9,12 @@ import android.widget.Toast;
 
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 
 import ca.brianchau.avalonhelper.cards.Card;
@@ -105,6 +108,18 @@ public class MainActivity extends Activity {
         }
         editor.putStringSet(SETTINGS_USERS, usernames);
         editor.commit();
+    }
+
+    public void generatePairs() {
+        if (gameCards.size() != gameUsers.size())
+            throw new RuntimeException("Error: Invalid application state");
+        Collections.sort(gameUsers, new Comparator<User>() {
+            @Override
+            public int compare(User user, User user2) {
+                return user.getName().compareTo(user2.getName());
+            }
+        });
+        Collections.shuffle(gameCards, new Random(System.nanoTime()));
     }
 
     public void sortUsers() {
