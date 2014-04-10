@@ -9,9 +9,9 @@ public enum Card {
     MORDRED         (false, false, true, true, false, false, false, "Mordred", "Merlin does not know that you're Evil."),
     MORGANA         (false, false, true, true, true, true, false, "Morgana", "You appear to be Merlin to Percival"),
     ASSASSIN        (false, false, true, true, true, false, false, "Assassin", "You try to assassinate Merlin if the Evil side loses."),
-    EVIL_LANCELOT   (false, false, false, true, false, false, true, "Evil Lancelot", "You may switch to become Good Lancelot"),
+    EVIL_LANCELOT   (false, false, false, true, true, false, true, "Evil Lancelot", "You may switch to become Good Lancelot"),
     GOOD_LANCELOT   (true, true, false, false, false, false, true, "Good Lancelot", "You may switch to become Evil Lancelot"),
-    OBERON          (false, false, true, false, false, false, false, "Oberon", "Nobody knows that you are Evil."), // TODO Merlin knows Oberon?
+    OBERON          (false, false, true, false, true, false, false, "Oberon", "Nobody knows that you are Evil."), // TODO Merlin knows Oberon?
     JHERI           (true, false, false, false, false, false, false, "Jheri", "You know the Lancelots. You appear to be Evil to the Lady of the Lake."),
     RICK            (true, true, false, false, false, false, false, "Rick", "You know who James is."),
     JAMES           (true, true, false, false, false, false, false, "James", "You know who Rick is."),

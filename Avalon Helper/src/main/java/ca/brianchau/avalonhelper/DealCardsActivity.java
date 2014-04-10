@@ -17,6 +17,7 @@ import ca.brianchau.avalonhelper.cards.Card;
  * Created by Brian on 2014-04-09.
  */
 public class DealCardsActivity extends Activity {
+    private static final int DELAY = 500;// 5000
     public static final String TAG = "DealCardsActivity";
     private MainActivity core;
     private LinearLayout passDeviceLayout;
@@ -87,6 +88,94 @@ public class DealCardsActivity extends Activity {
 
         String otherInfo = "";
 
+        if (currentCard.equals(Card.MERLIN)) {
+            otherInfo = "The Minions of Mordred that you can see are: ";
+            for (int i = 0; i < core.gameCards.size(); i++) {
+                if (i == counter) continue;
+                Card card = core.gameCards.get(i);
+                User user = core.gameUsers.get(i);
+                if (card.showToMerlin) {
+                    otherInfo = otherInfo + user.getName() + ", ";
+                }
+            }
+            otherInfo = otherInfo.trim();
+            otherInfo = otherInfo.substring(0, otherInfo.length()-1);
+        } else if (currentCard.equals(Card.PERCIVAL)) {
+            otherInfo = "Merlin and Morgana are %s and %s.";
+            int num = 0;
+            String[] names = new String[2];
+            for (int i = 0; i < core.gameCards.size(); i++) {
+                if (i == counter) continue;
+                Card card = core.gameCards.get(i);
+                User user = core.gameUsers.get(i);
+                if (card.showToPercival) {
+                    names[num++] = user.getName();
+                }
+            }
+            otherInfo = String.format(otherInfo, names[0], names[1]);
+        } else if (currentCard.equals(Card.MORDRED) || currentCard.equals(Card.MORGANA) || currentCard.equals(Card.ASSASSIN) || currentCard.equals(Card.MINION)) {
+            otherInfo = "The other Minions of Mordred are: ";
+            for (int i = 0; i < core.gameCards.size(); i++) {
+                if (i == counter) continue;
+                Card card = core.gameCards.get(i);
+                User user = core.gameUsers.get(i);
+                if (card.showToMinions) {
+                    if (card.isLancelot) {
+                        otherInfo = "Evil Lancelot is " + user.getName() + ".\n" + otherInfo;
+                    } else {
+                        otherInfo = otherInfo + user.getName() + ", ";
+                    }
+                }
+            }
+            otherInfo = otherInfo.trim();
+            otherInfo = otherInfo.substring(0, otherInfo.length()-1);
+        } else if (currentCard.equals(Card.OBERON)) {
+            otherInfo = "The other Minions of Mordred are: ";
+            for (int i = 0; i < core.gameCards.size(); i++) {
+                if (i == counter) continue;
+                Card card = core.gameCards.get(i);
+                User user = core.gameUsers.get(i);
+                if (card.showToMinions) {
+                    otherInfo = otherInfo + user.getName() + ", ";
+                }
+            }
+            otherInfo = otherInfo.trim();
+            otherInfo = otherInfo.substring(0, otherInfo.length()-1);
+        } else if (currentCard.equals(Card.JHERI)) {
+            otherInfo = "The two Lancelots are %s and %s.";
+            int num = 0;
+            String[] names = new String[2];
+            for (int i = 0; i < core.gameCards.size(); i++) {
+                if (i == counter) continue;
+                Card card = core.gameCards.get(i);
+                User user = core.gameUsers.get(i);
+                if (card.isLancelot) {
+                    names[num++] = user.getName();
+                }
+            }
+            otherInfo = String.format(otherInfo, names[0], names[1]);
+        } else if (currentCard.equals(Card.RICK)) {
+            otherInfo = "James is ";
+            for (int i = 0; i < core.gameCards.size(); i++) {
+                Card card = core.gameCards.get(i);
+                User user = core.gameUsers.get(i);
+                if (card.equals(Card.JAMES)) {
+                    otherInfo = otherInfo + user.getName();
+                    break;
+                }
+            }
+        } else if (currentCard.equals(Card.JAMES)) {
+            otherInfo = "Rick is ";
+            for (int i = 0; i < core.gameCards.size(); i++) {
+                Card card = core.gameCards.get(i);
+                User user = core.gameUsers.get(i);
+                if (card.equals(Card.RICK)) {
+                    otherInfo = otherInfo + user.getName();
+                    break;
+                }
+            }
+        }
+
         ((TextView)findViewById(R.id.tv_deal_other_info)).setText(otherInfo);
 
         informationLayout.setEnabled(true);
@@ -96,9 +185,18 @@ public class DealCardsActivity extends Activity {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                findViewById(R.id.btn_deal_info_ok).setEnabled(true);
+                DealCardsActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        enableInfoOKButton();
+                    }
+                });
             }
-        }, 5000);
+        }, DELAY);
+    }
+
+    public void enableInfoOKButton() {
+        findViewById(R.id.btn_deal_info_ok).setEnabled(true);
     }
 
     @Override
