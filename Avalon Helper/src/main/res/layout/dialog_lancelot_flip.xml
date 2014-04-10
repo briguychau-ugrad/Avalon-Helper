@@ -1,0 +1,27 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="170dp"
+    android:background="#333333">
+
+    <TextView
+        android:id="@+id/tv_lancelot_switch_info"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:text="@string/lancelot_switch_dialog_info" />
+
+    <Button
+        android:id="@+id/btn_lancelot_switch_ok"
+        android:layout_width="175dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tv_lancelot_switch_info"
+        android:background="#cccccc"
+        android:text="@string/new_user_dialog_ok"/>
+
+</RelativeLayout>

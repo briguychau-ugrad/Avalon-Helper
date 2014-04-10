@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -40,6 +41,7 @@ public class MainActivity extends Activity {
     public List<Card> gameCards;
     public int numberOfPlayers;
     public List<Boolean> missionResults;
+    public List<Boolean> lancelotSwitchCards;
     public boolean missionWin;
     public boolean merlinGuess;
 
@@ -80,6 +82,7 @@ public class MainActivity extends Activity {
             }
             sortUsers();
         }
+        lancelotSwitchCards = Arrays.asList(true, true, false, false, false);
     }
 
     public boolean addUser(User user) {
@@ -132,6 +135,22 @@ public class MainActivity extends Activity {
                 return user.getName().compareTo(user2.getName());
             }
         });
+    }
+
+    public void shuffleLancelotCards() {
+        Collections.shuffle(lancelotSwitchCards, new Random(System.nanoTime()));
+    }
+
+    public String getMinions() {
+        String minions = "The Minions of Mordred are: ";
+        for (int i = 0; i < gameCards.size(); i++) {
+            if (!gameCards.get(i).good) {
+                minions = minions + gameUsers.get(i).getName() + " (" + gameCards.get(i).name + "), ";
+            }
+        }
+        minions = minions.trim();
+        minions = minions.substring(0, minions.length() - 1);
+        return minions;
     }
 
     @Override

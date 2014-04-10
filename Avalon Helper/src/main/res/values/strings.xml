@@ -50,4 +50,7 @@
     <string name="end_game_evil">The winners are the Minions of Mordred</string>
     <string name="end_game_ok">OK</string>
 
+    <string name="lancelot_switch_dialog_info">Good and Evil Lancelots, you have now switched roles.</string>
+    <string name="lancelot_switch_dialog_ok">OK</string>
+
 </resources>

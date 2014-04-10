@@ -12,6 +12,9 @@ import android.widget.TextView;
 
 import java.util.LinkedList;
 
+import ca.brianchau.avalonhelper.cards.Card;
+import ca.brianchau.avalonhelper.dialogs.LancelotFlipDialog;
+
 /**
  * Created by Brian on 2014-04-09.
  */
@@ -143,6 +146,7 @@ public class GameActivity extends Activity {
         currentMissionPrompt.setText(String.format(getString(R.string.game_mission_select), MISSIONS[core.numberOfPlayers][currentMission]));
 
         core.missionResults = new LinkedList<Boolean>();
+        core.shuffleLancelotCards();
     }
 
     public void handleReject() {
@@ -170,6 +174,9 @@ public class GameActivity extends Activity {
         currentMission++;
         currentMissionNumber.setText(Integer.toString(currentMission));
         currentMissionPrompt.setText(String.format(getString(R.string.game_mission_select), MISSIONS[core.numberOfPlayers][currentMission]));
+
+        // LADY OF THE LAKE
+
         switch (currentMission) {
             case 2:
                 mission1_past.setVisibility(View.VISIBLE);
@@ -197,17 +204,34 @@ public class GameActivity extends Activity {
                 break;
         }
         twoFailMission.setVisibility(currentMission == 4 && core.numberOfPlayers >= TWO_FAIL_PLAYERS ? View.VISIBLE : View.INVISIBLE);
+
+        if (currentMission >= 3 && core.gameCards.contains(Card.GOOD_LANCELOT)) {
+            if (core.lancelotSwitchCards.get(currentMission - 3)) {
+                lancelotSwitch();
+            }
+        }
+    }
+
+    public void lancelotSwitch() {
+        for (int i = 0; i < core.gameCards.size(); i++) {
+            if (core.gameCards.get(i).equals(Card.GOOD_LANCELOT)) {
+                core.gameCards.set(i, Card.EVIL_LANCELOT);
+            } else if (core.gameCards.get(i).equals(Card.EVIL_LANCELOT)) {
+                core.gameCards.set(i, Card.GOOD_LANCELOT);
+            }
+        }
+        new LancelotFlipDialog(this).show();
     }
 
     public void endGame(boolean win) {
         core.missionWin = win;
         core.merlinGuess = false;
-        if (win) {
+        if (!win || !core.gameCards.contains(Card.MERLIN)) {
             Intent i = new Intent(getApplicationContext(), EndGameActivity.class);
             startActivity(i);
             finish();
         } else {
-            // Merlin Guessing
+            // MERLIN GUESSING
         }
     }
 
