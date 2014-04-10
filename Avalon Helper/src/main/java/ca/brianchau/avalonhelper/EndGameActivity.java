@@ -20,6 +20,7 @@ public class EndGameActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_game);
         core = MainActivity.getDefaultInstance();
+        boolean goodWin = false;
         if (core.missionWin) {
             if (core.gameCards.contains(Card.MERLIN)) {
                 if (core.merlinGuess) {
@@ -28,9 +29,11 @@ public class EndGameActivity extends Activity {
                 } else {
                     findViewById(R.id.tv_end_game_good).setVisibility(View.VISIBLE);
                     findViewById(R.id.tv_end_game_merlin_guess_incorrect).setVisibility(View.VISIBLE);
+                    goodWin = true;
                 }
             } else {
                 findViewById(R.id.tv_end_game_good).setVisibility(View.VISIBLE);
+                goodWin = true;
             }
         } else {
             findViewById(R.id.tv_end_game_evil).setVisibility(View.VISIBLE);
@@ -54,10 +57,12 @@ public class EndGameActivity extends Activity {
                 finish();
             }
         });
-    }
 
-    @Override
-    public void onBackPressed() {
-        // Do nothing
+        for (int i = 0; i < core.gameUsers.size(); i++) {
+            User u = core.gameUsers.get(i);
+            Card c = core.gameCards.get(i);
+            u.setGameResult(goodWin == c.good);
+        }
+        core.saveUsers(core.gameUsers);
     }
 }

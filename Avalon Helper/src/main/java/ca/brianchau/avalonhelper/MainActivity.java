@@ -29,7 +29,6 @@ public class MainActivity extends Activity {
     public static final String SETTINGS_USERS = "users";
     public static final String SETTINGS_PREFIX_WIN = "_win_";
     public static final String SETTINGS_PREFIX_LOSS = "_loss_";
-    public static final String SETTINGS_PREFIX_GOOD = "_good_";
     public static final String SETTINGS_PREFIX_STREAK = "_streak_";
     public static final String SETTINGS_PREFIX_RECENT = "_recent_";
     private static final int ERROR = 1<<31;
@@ -73,12 +72,11 @@ public class MainActivity extends Activity {
                 int losses = preferences.getInt(SETTINGS_PREFIX_LOSS + s, ERROR);
                 int streak = preferences.getInt(SETTINGS_PREFIX_STREAK + s, ERROR);
                 int recent = preferences.getInt(SETTINGS_PREFIX_RECENT + s, ERROR);
-                boolean good = preferences.getBoolean(SETTINGS_PREFIX_GOOD + s, true);
                 if (wins == ERROR || losses == ERROR || streak == ERROR || recent == ERROR) {
                     Toast.makeText(this, "Unable to retrieve stats for " + s, Toast.LENGTH_LONG).show();
                     continue;
                 }
-                users.add(new User(s, wins, losses, good, streak, recent));
+                users.add(new User(s, wins, losses, streak, recent));
             }
             sortUsers();
         }
@@ -110,10 +108,12 @@ public class MainActivity extends Activity {
             editor.putInt(SETTINGS_PREFIX_LOSS + username, u.getLosses());
             editor.putInt(SETTINGS_PREFIX_STREAK + username, u.getStreak());
             editor.putInt(SETTINGS_PREFIX_RECENT + username, u.getRecent());
-            editor.putBoolean(SETTINGS_PREFIX_GOOD + username, u.getGood());
         }
         editor.putStringSet(SETTINGS_USERS, usernames);
         editor.commit();
+        for (User u : users) {
+            System.out.println(u);
+        }
     }
 
     public void generatePairs() {

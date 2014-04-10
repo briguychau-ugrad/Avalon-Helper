@@ -9,7 +9,6 @@ public class User {
     private String username;
     private int wins;
     private int losses;
-    private boolean good;
     private int streak;
     private int recent;
 
@@ -22,12 +21,11 @@ public class User {
         this.username = username;
         wins = 0;
         losses = 0;
-        good = true;
         streak = 0;
         recent = 0;
     }
 
-    public User(String username, int wins, int losses, boolean good, int streak, int recent) {
+    public User(String username, int wins, int losses, int streak, int recent) {
         username = username.trim();
         if (username == null || username.equals(""))
             throw new InvalidParameterException("Unable to create a user with no name");
@@ -36,7 +34,6 @@ public class User {
         this.username = username;
         this.wins = wins;
         this.losses = losses;
-        this.good = good;
         this.streak = streak;
         this.recent = recent;
     }
@@ -59,14 +56,6 @@ public class User {
 
     public int getRecent() {
         return recent;
-    }
-
-    public boolean getGood() {
-        return good;
-    }
-
-    public void setGood(boolean good) {
-        this.good = good;
     }
 
     public void setGameResult(boolean win) {
@@ -104,5 +93,10 @@ public class User {
     @Override
     public int hashCode() {
         return username.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return String.format("User name: %s; wins: %d; losses: %d; streak: %d", username, wins, losses, streak);
     }
 }
