@@ -28,4 +28,20 @@
     <string name="deal_cards_ok">OK</string>
     <string name="deal_cards_you_are">You are:</string>
 
+    <string name="game_vote_reject">Votes Rejected</string>
+    <string name="game_mission_pass">Mission Passed</string>
+    <string name="game_mission_fail">Mission Failed</string>
+    <string name="game_two_fail_mission">This is a two-fail mission.</string>
+
+    <string name="game_mission_1">1</string>
+    <string name="game_mission_2">2</string>
+    <string name="game_mission_3">3</string>
+    <string name="game_mission_4">4</string>
+    <string name="game_mission_5">5</string>
+
+    <string name="game_mission_result_passed">Passed</string>
+    <string name="game_mission_result_failed">Failed</string>
+    <string name="game_mission_select">Select %d players for this mission</string>
+    <string name="game_mission_players">%d player mission</string>
+
 </resources>

@@ -4,12 +4,366 @@
     android:layout_height="match_parent"
     android:background="#857d71">
 
-    <TextView
-        android:id="@+id/tv_game_temp"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/ll_game_past"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="50sp"
-        android:layout_centerInParent="true"
-        android:text="TESTING" />
+        android:gravity="top"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true">
+
+        <RelativeLayout
+            android:id="@+id/rl_game_mission1_past"
+            android:layout_width="fill_parent"
+            android:layout_height="75dp"
+            android:background="#000000"
+            android:padding="1dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_game_mission1_past_inner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#857d71">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="50sp"
+                    android:textColor="#ffffff"
+                    android:text="@string/game_mission_1" />
+
+                <TextView
+                    android:id="@+id/tv_game_mission1_result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="70dp"
+                    android:textSize="40sp"
+                    android:textColor="#ffffff"
+                    android:textAllCaps="true" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_game_mission2_past"
+            android:layout_width="fill_parent"
+            android:layout_height="75dp"
+            android:background="#000000"
+            android:padding="1dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_game_mission2_past_inner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#857d71">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="50sp"
+                    android:textColor="#ffffff"
+                    android:text="@string/game_mission_2" />
+
+                <TextView
+                    android:id="@+id/tv_game_mission2_result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="70dp"
+                    android:textSize="40sp"
+                    android:textColor="#ffffff"
+                    android:textAllCaps="true" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_game_mission3_past"
+            android:layout_width="fill_parent"
+            android:layout_height="75dp"
+            android:background="#000000"
+            android:padding="1dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_game_mission3_past_inner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#857d71">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="50sp"
+                    android:textColor="#ffffff"
+                    android:text="@string/game_mission_3" />
+
+                <TextView
+                    android:id="@+id/tv_game_mission3_result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="70dp"
+                    android:textSize="40sp"
+                    android:textColor="#ffffff"
+                    android:textAllCaps="true" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_game_mission4_past"
+            android:layout_width="fill_parent"
+            android:layout_height="75dp"
+            android:background="#000000"
+            android:padding="1dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_game_mission4_past_inner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#857d71">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="50sp"
+                    android:textColor="#ffffff"
+                    android:text="@string/game_mission_4" />
+
+                <TextView
+                    android:id="@+id/tv_game_mission4_result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="70dp"
+                    android:textSize="40sp"
+                    android:textColor="#ffffff"
+                    android:textAllCaps="true" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_game_future"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true">
+
+        <RelativeLayout
+            android:id="@+id/rl_game_mission2_future"
+            android:layout_width="fill_parent"
+            android:layout_height="75dp"
+            android:background="#000000"
+            android:padding="1dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#857d71">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="50sp"
+                    android:textColor="#000000"
+                    android:text="@string/game_mission_2" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_game_mission3_future"
+            android:layout_width="fill_parent"
+            android:layout_height="75dp"
+            android:background="#000000"
+            android:padding="1dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#857d71">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="50sp"
+                    android:textColor="#000000"
+                    android:text="@string/game_mission_3" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_game_mission4_future"
+            android:layout_width="fill_parent"
+            android:layout_height="75dp"
+            android:background="#000000"
+            android:padding="1dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#857d71">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="50sp"
+                    android:textColor="#000000"
+                    android:text="@string/game_mission_4" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_game_mission5_future"
+            android:layout_width="fill_parent"
+            android:layout_height="75dp"
+            android:background="#000000"
+            android:padding="1dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#857d71">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="50sp"
+                    android:textColor="#000000"
+                    android:text="@string/game_mission_5" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_game_mission5_past"
+        android:layout_width="fill_parent"
+        android:layout_height="75dp"
+        android:layout_below="@id/ll_game_past">
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_game_mission1_future"
+        android:layout_width="fill_parent"
+        android:layout_height="75dp"
+        android:layout_above="@id/ll_game_future">
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_game_current_mission"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/rl_game_mission1_future"
+        android:layout_alignTop="@id/rl_game_mission5_past"
+        android:background="#000000"
+        android:padding="1dp">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#857d71">
+
+            <TextView
+                android:id="@+id/tv_game_current_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:textSize="50sp"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/tv_game_current_prompt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="70dp"
+                android:textSize="30sp"
+                android:textColor="#000000" />
+
+            <LinearLayout
+                android:id="@+id/ll_game_buttons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true">
+
+                <Button
+                    android:id="@+id/btn_game_reject"
+                    android:layout_width="350dp"
+                    android:layout_height="50dp"
+                    android:textColor="#000000"
+                    android:text="@string/game_vote_reject" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/btn_game_pass"
+                        android:layout_width="175dp"
+                        android:layout_height="75dp"
+                        android:textColor="#0033ff"
+                        android:text="@string/game_mission_pass" />
+
+                    <Button
+                        android:id="@+id/btn_game_fail"
+                        android:layout_width="175dp"
+                        android:layout_height="75dp"
+                        android:textColor="#ff0000"
+                        android:text="@string/game_mission_fail" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_game_two_fail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_above="@id/ll_game_buttons"
+                android:textColor="#000000"
+                android:text="@string/game_two_fail_mission"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
 
 </RelativeLayout>

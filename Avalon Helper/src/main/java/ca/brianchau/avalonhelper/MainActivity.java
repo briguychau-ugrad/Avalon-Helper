@@ -39,6 +39,7 @@ public class MainActivity extends Activity {
     public List<User> gameUsers;
     public List<Card> gameCards;
     public int numberOfPlayers;
+    public List<Boolean> missionResults;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
