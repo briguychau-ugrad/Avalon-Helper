@@ -146,8 +146,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#0033ff"
-                    android:textSize="32sp"
-                    android:text="0/6" />
+                    android:textSize="32sp" />
 
                 <TextView
                     android:id="@+id/tv_card_selected_evil"
@@ -155,8 +154,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="100dp"
                     android:textColor="#ff0000"
-                    android:textSize="32sp"
-                    android:text="0/4" />
+                    android:textSize="32sp" />
 
             </LinearLayout>
 
@@ -166,42 +164,46 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ll_card_selections">
 
-                <Button
+                <ToggleButton
                     android:id="@+id/btn_card_merlin"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:textColor="#0033ff"
                     android:textSize="24sp"
-                    android:text="Merlin" />
+                    android:textOff="Merlin"
+                    android:textOn="Merlin" />
 
-                <Button
+                <ToggleButton
                     android:id="@+id/btn_card_percival"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_toRightOf="@id/btn_card_merlin"
                     android:textColor="#0033ff"
                     android:textSize="20sp"
-                    android:text="Percival" />
+                    android:textOff="Percival"
+                    android:textOn="Percival"/>
 
-                <Button
+                <ToggleButton
                     android:id="@+id/btn_card_rick_james"
                     android:layout_width="200dp"
                     android:layout_height="100dp"
                     android:layout_toRightOf="@id/btn_card_percival"
                     android:textColor="#0033ff"
                     android:textSize="24sp"
-                    android:text="Rick and James" />
+                    android:textOff="Rick and James"
+                    android:textOn="Rick and James" />
 
-                <Button
+                <ToggleButton
                     android:id="@+id/btn_card_jheri"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_below="@id/btn_card_merlin"
                     android:textColor="#0033ff"
                     android:textSize="24sp"
-                    android:text="Jheri" />
+                    android:textOff="Jheri"
+                    android:textOn="Jheri" />
 
-                <Button
+                <ToggleButton
                     android:id="@+id/btn_card_infiltrator"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
@@ -209,28 +211,31 @@
                     android:layout_below="@id/btn_card_merlin"
                     android:textColor="#0033ff"
                     android:textSize="18sp"
-                    android:text="Infiltrator" />
+                    android:textOff="Infiltrator"
+                    android:textOn="Infiltrator" />
 
-                <Button
-                    android:id="@+id/btn_card_servant"
+                <TextView
+                    android:id="@+id/tv_card_servant"
                     android:layout_width="200dp"
                     android:layout_height="100dp"
                     android:layout_toRightOf="@id/btn_card_infiltrator"
                     android:layout_below="@id/btn_card_merlin"
+                    android:gravity="center"
+                    android:padding="5dp"
                     android:textColor="#0033ff"
-                    android:textSize="20sp"
-                    android:text="Loyal Servant of Arthur" />
+                    android:textSize="20sp" />
 
-                <Button
+                <ToggleButton
                     android:id="@+id/btn_card_mordred"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_below="@id/btn_card_jheri"
                     android:textColor="#ff0000"
                     android:textSize="18sp"
-                    android:text="Mordred" />
+                    android:textOff="Mordred"
+                    android:textOn="Mordred" />
 
-                <Button
+                <ToggleButton
                     android:id="@+id/btn_card_morgana"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
@@ -238,9 +243,10 @@
                     android:layout_below="@id/btn_card_jheri"
                     android:textColor="#ff0000"
                     android:textSize="18sp"
-                    android:text="Morgana" />
+                    android:textOff="Morgana"
+                    android:textOn="Morgana" />
 
-                <Button
+                <ToggleButton
                     android:id="@+id/btn_card_lancelot"
                     android:layout_width="200dp"
                     android:layout_height="100dp"
@@ -248,18 +254,20 @@
                     android:layout_below="@id/btn_card_jheri"
                     android:textColor="#000000"
                     android:textSize="20sp"
-                    android:text="Good and Evil Lancelots" />
+                    android:textOff="Good and Evil Lancelots"
+                    android:textOn="Good and Evil Lancelots" />
 
-                <Button
+                <ToggleButton
                     android:id="@+id/btn_card_oberon"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_below="@id/btn_card_mordred"
                     android:textColor="#ff0000"
                     android:textSize="18sp"
-                    android:text="Oberon" />
+                    android:textOff="Oberon"
+                    android:textOn="Oberon" />
 
-                <Button
+                <ToggleButton
                     android:id="@+id/btn_card_assassin"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
@@ -267,17 +275,19 @@
                     android:layout_below="@id/btn_card_mordred"
                     android:textColor="#ff0000"
                     android:textSize="18sp"
-                    android:text="Assassin" />
+                    android:textOff="Assassin"
+                    android:textOn="Assassin" />
 
-                <Button
-                    android:id="@+id/btn_card_minion"
+                <TextView
+                    android:id="@+id/tv_card_minion"
                     android:layout_width="200dp"
                     android:layout_height="100dp"
                     android:layout_toRightOf="@id/btn_card_assassin"
                     android:layout_below="@id/btn_card_mordred"
+                    android:gravity="center"
+                    android:padding="5dp"
                     android:textColor="#ff0000"
-                    android:textSize="24sp"
-                    android:text="Minion of Mordred" />
+                    android:textSize="20sp" />
             </RelativeLayout>
 
             <RelativeLayout

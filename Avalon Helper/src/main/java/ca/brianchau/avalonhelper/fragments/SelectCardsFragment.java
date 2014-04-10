@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import ca.brianchau.avalonhelper.MainActivity;
 import ca.brianchau.avalonhelper.R;
@@ -21,6 +22,21 @@ public class SelectCardsFragment extends Fragment {
     private MainActivity core;
     private SetupActivity activity;
     private RelativeLayout layout;
+
+    private boolean merlinSelected;
+    private boolean percivalSelected;
+    private boolean rickJamesSelected;
+    private boolean jheriSelected;
+    private boolean infiltratorSelected;
+    private boolean mordredSelected;
+    private boolean morganaSelected;
+    private boolean lancelotsSelected;
+    private boolean oberonSelected;
+    private boolean assassinSelected;
+    private int servantsSelected;
+    private int minionsSelected;
+    private int servantsMax;
+    private int minionsMax;
 
     @Override
     public void onAttach(Activity activity) {
@@ -53,6 +69,31 @@ public class SelectCardsFragment extends Fragment {
     public void onStart() {
         super.onStart();
         Log.i(TAG, "onStart");
+        merlinSelected = false;
+        percivalSelected = false;
+        rickJamesSelected = false;
+        jheriSelected = false;
+        infiltratorSelected = false;
+        mordredSelected = false;
+        morganaSelected = false;
+        lancelotsSelected = false;
+        oberonSelected = false;
+        assassinSelected = false;
+        servantsSelected = 0;
+        minionsSelected = 0;
+        minionsMax = core.numberOfPlayers / 3 + (core.numberOfPlayers % 3 == 0 ? 0 : 1);
+        servantsMax = core.numberOfPlayers - minionsMax;
+        ((TextView)activity.findViewById(R.id.tv_card_selected_good)).setText("Good: " + servantsMax);
+        ((TextView)activity.findViewById(R.id.tv_card_selected_evil)).setText("Evil: " + minionsMax);
+        ((TextView)activity.findViewById(R.id.tv_card_servant)).setText("Other Loyal Servants of Arthur: " + (servantsMax - servantsSelected));
+        ((TextView)activity.findViewById(R.id.tv_card_minion)).setText("Other Minions of Mordred: " + (minionsMax - minionsSelected));
+
+        activity.findViewById(R.id.btn_card_merlin).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     @Override

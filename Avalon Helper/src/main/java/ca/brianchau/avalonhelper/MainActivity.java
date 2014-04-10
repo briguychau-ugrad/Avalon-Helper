@@ -32,6 +32,7 @@ public class MainActivity extends Activity {
 
     public List<User> users;
     public List<User> gameUsers;
+    public int numberOfPlayers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

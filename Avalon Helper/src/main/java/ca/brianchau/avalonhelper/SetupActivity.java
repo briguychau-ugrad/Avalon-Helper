@@ -34,7 +34,6 @@ public class SetupActivity extends Activity {
     private boolean canGoBack;
     private FrameLayout frame;
     private Stack<Fragment> fragmentStack;
-    private int numberOfPlayers;
     private SelectUsersAdapter userArrayAdapter;
 
     @Override
@@ -51,7 +50,7 @@ public class SetupActivity extends Activity {
             ft.add(R.id.fl_setup_content, numberOfPlayersFragment).addToBackStack(NumberOfPlayersFragment.TAG).commit();
             fragmentStack.push(numberOfPlayersFragment);
         }
-        numberOfPlayers = 0;
+        core.numberOfPlayers = 0;
     }
 
     @Override
@@ -81,7 +80,7 @@ public class SetupActivity extends Activity {
     }
 
     public void setNumberOfPlayers(int players) {
-        this.numberOfPlayers = players;
+        core.numberOfPlayers = players;
     }
 
     public void finishNumberOfPlayersFragment() {
@@ -133,6 +132,7 @@ public class SetupActivity extends Activity {
             map.put(object, true);
             selectCount++;
             notifyDataSetChanged();
+            findViewById(R.id.btn_select_users_ok).setEnabled(selectCount == core.numberOfPlayers);
         }
 
         @Override
@@ -159,7 +159,7 @@ public class SetupActivity extends Activity {
                 @Override
                 public void onClick(View view) {
                     checkBox.setChecked(updateItem(position));
-                    findViewById(R.id.btn_select_users_ok).setEnabled(selectCount == numberOfPlayers);
+                    findViewById(R.id.btn_select_users_ok).setEnabled(selectCount == core.numberOfPlayers);
                 }
             };
             convertView.setOnClickListener(listener);
