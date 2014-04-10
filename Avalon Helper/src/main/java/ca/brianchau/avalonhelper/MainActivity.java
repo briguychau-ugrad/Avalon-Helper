@@ -14,6 +14,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
+import ca.brianchau.avalonhelper.cards.Card;
+
 /**
  * Created by Brian on 2014-04-08.
  */
@@ -32,6 +34,7 @@ public class MainActivity extends Activity {
 
     public List<User> users;
     public List<User> gameUsers;
+    public Set<Card> gameCards;
     public int numberOfPlayers;
 
     @Override
