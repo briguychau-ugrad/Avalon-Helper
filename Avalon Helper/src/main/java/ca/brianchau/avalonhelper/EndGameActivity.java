@@ -35,9 +35,12 @@ public class EndGameActivity extends Activity {
         } else {
             findViewById(R.id.tv_end_game_evil).setVisibility(View.VISIBLE);
         }
-        findViewById(R.id.view_end_game_mission1).setBackgroundColor(core.missionResults.get(0) ? Color.rgb(0, 51, 255) : Color.rgb(255, 0, 0));
-        findViewById(R.id.view_end_game_mission2).setBackgroundColor(core.missionResults.get(1) ? Color.rgb(0, 51, 255) : Color.rgb(255, 0, 0));
-        findViewById(R.id.view_end_game_mission3).setBackgroundColor(core.missionResults.get(2) ? Color.rgb(0, 51, 255) : Color.rgb(255, 0, 0));
+        if (core.missionResults.size() >= 1)
+            findViewById(R.id.view_end_game_mission1).setBackgroundColor(core.missionResults.get(0) ? Color.rgb(0, 51, 255) : Color.rgb(255, 0, 0));
+        if (core.missionResults.size() >= 2)
+            findViewById(R.id.view_end_game_mission2).setBackgroundColor(core.missionResults.get(1) ? Color.rgb(0, 51, 255) : Color.rgb(255, 0, 0));
+        if (core.missionResults.size() >= 3)
+            findViewById(R.id.view_end_game_mission3).setBackgroundColor(core.missionResults.get(2) ? Color.rgb(0, 51, 255) : Color.rgb(255, 0, 0));
         if (core.missionResults.size() >= 4)
             findViewById(R.id.view_end_game_mission4).setBackgroundColor(core.missionResults.get(3) ? Color.rgb(0, 51, 255) : Color.rgb(255, 0, 0));
         if (core.missionResults.size() == 5)

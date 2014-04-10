@@ -401,11 +401,21 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/tv_game_two_fail"
+                android:id="@+id/tv_game_rejects"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_above="@id/ll_game_buttons"
+                android:textSize="12sp"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/tv_game_two_fail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_above="@id/tv_game_rejects"
+                android:textSize="12sp"
                 android:textColor="#000000"
                 android:text="@string/game_two_fail_mission"/>
 

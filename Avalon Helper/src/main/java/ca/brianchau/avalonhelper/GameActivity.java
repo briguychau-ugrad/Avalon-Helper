@@ -144,6 +144,7 @@ public class GameActivity extends Activity {
 
         currentMissionNumber.setText("1");
         currentMissionPrompt.setText(String.format(getString(R.string.game_mission_select), MISSIONS[core.numberOfPlayers][currentMission]));
+        ((TextView)findViewById(R.id.tv_game_rejects)).setText(String.format(getString(R.string.game_mission_rejects), rejects));
 
         core.missionResults = new LinkedList<Boolean>();
         core.shuffleLancelotCards();
@@ -154,6 +155,7 @@ public class GameActivity extends Activity {
         if (rejects == 5) {
             endGame(false);
         }
+        ((TextView)findViewById(R.id.tv_game_rejects)).setText(String.format(getString(R.string.game_mission_rejects), rejects));
     }
 
     public void showNextMission(boolean passed) {
@@ -204,6 +206,9 @@ public class GameActivity extends Activity {
                 break;
         }
         twoFailMission.setVisibility(currentMission == 4 && core.numberOfPlayers >= TWO_FAIL_PLAYERS ? View.VISIBLE : View.INVISIBLE);
+
+        rejects = 0;
+        ((TextView)findViewById(R.id.tv_game_rejects)).setText(String.format(getString(R.string.game_mission_rejects), rejects));
 
         if (currentMission >= 3 && core.gameCards.contains(Card.GOOD_LANCELOT)) {
             if (core.lancelotSwitchCards.get(currentMission - 3)) {

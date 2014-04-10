@@ -43,6 +43,7 @@
     <string name="game_mission_result_failed">Failed</string>
     <string name="game_mission_select">Select %d players for this mission</string>
     <string name="game_mission_players">%d player mission</string>
+    <string name="game_mission_rejects">%d rejects</string>
 
     <string name="end_game_merlin_guess_correct">Merlin was correctly guessed</string>
     <string name="end_game_merlin_guess_incorrect">Merlin was not correctly guessed</string>
