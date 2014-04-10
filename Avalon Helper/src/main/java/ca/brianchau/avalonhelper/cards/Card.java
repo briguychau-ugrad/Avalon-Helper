@@ -11,11 +11,11 @@ public enum Card {
     ASSASSIN        (false, false, true, true, true, false, false, "Assassin", "You try to assassinate Merlin if the Evil side loses."),
     EVIL_LANCELOT   (false, false, false, true, false, false, true, "Evil Lancelot", "You may switch to become Good Lancelot"),
     GOOD_LANCELOT   (true, true, false, false, false, false, true, "Good Lancelot", "You may switch to become Evil Lancelot"),
-    OBERON          (false, false, false, false, false, false, false, "Oberon", "Nobody knows that you are Evil."), // TODO Merlin knows Oberon?
-    JHERI           (true, false, false, false, false, false, false, "Jheri", "You know the Lancelots. You are Good but appear to be Evil."),
+    OBERON          (false, false, true, false, false, false, false, "Oberon", "Nobody knows that you are Evil."), // TODO Merlin knows Oberon?
+    JHERI           (true, false, false, false, false, false, false, "Jheri", "You know the Lancelots. You appear to be Evil to the Lady of the Lake."),
     RICK            (true, true, false, false, false, false, false, "Rick", "You know who James is."),
     JAMES           (true, true, false, false, false, false, false, "James", "You know who Rick is."),
-    INFILTRATOR     (true, true, false, true, false, false, false, "Michael Yu", "You appear Evil to the Minions of Mordred"),
+    INFILTRATOR     (false, true, true, true, true, false, false, "Infiltrator", "You appear to be Good to the Lady of the Lake."),
     MINION          (false, false, true, true, true, false, false, "Minion of Mordred", "You have no special ability"),
     SERVANT         (true, true, false, false, false, false, false, "Loyal Servant of Arthur", "You have no special ability");
 

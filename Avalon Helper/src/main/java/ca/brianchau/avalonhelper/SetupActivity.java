@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -104,6 +105,20 @@ public class SetupActivity extends Activity {
                 core.gameUsers.add(u);
             }
         }
+    }
+
+    public void finishSelectCardsFragment() {
+        fragmentStack.peek().onPause();
+        fragmentStack.pop();
+        fragmentStack.pop();
+        fragmentStack.pop();
+        getFragmentManager().popBackStack();
+        getFragmentManager().popBackStack();
+        getFragmentManager().popBackStack();
+
+        Intent i = new Intent(getApplicationContext(), DealCardsActivity.class);
+        startActivity(i);
+        finish();
     }
 
     public class SelectUsersAdapter extends ArrayAdapter<User> {

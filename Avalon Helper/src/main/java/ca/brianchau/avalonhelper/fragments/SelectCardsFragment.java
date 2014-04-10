@@ -208,6 +208,13 @@ public class SelectCardsFragment extends Fragment {
             }
         });
 
+        activity.findViewById(R.id.btn_select_cards_ok).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                activity.finishSelectCardsFragment();
+            }
+        });
+
         drawText();
     }
 
