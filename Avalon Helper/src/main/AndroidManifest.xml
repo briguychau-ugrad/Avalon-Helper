@@ -28,6 +28,10 @@
             android:name="ca.brianchau.avalonhelper.DealCardsActivity"
             android:theme="@android:style/Theme.Black.NoTitleBar">
         </activity>
+        <activity
+            android:name="ca.brianchau.avalonhelper.GameActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar">
+        </activity>
     </application>
 
 </manifest>

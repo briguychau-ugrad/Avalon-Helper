@@ -1,6 +1,7 @@
 package ca.brianchau.avalonhelper;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -61,7 +62,7 @@ public class DealCardsActivity extends Activity {
 
         counter++;
         if (counter >= core.gameUsers.size()) {
-            finish();
+            switchToGameActivity();
             return;
         }
 
@@ -193,6 +194,12 @@ public class DealCardsActivity extends Activity {
                 });
             }
         }, DELAY);
+    }
+
+    public void switchToGameActivity() {
+        Intent i = new Intent(getApplicationContext(), GameActivity.class);
+        startActivity(i);
+        finish();
     }
 
     public void enableInfoOKButton() {
