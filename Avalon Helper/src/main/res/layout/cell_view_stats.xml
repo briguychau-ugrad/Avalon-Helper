@@ -1,0 +1,59 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="50dp">
+
+    <Button
+        android:id="@+id/btn_stats_delete"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:textColor="#000000"
+        android:text="@string/stats_delete" />
+
+    <TextView
+        android:id="@+id/tv_stats_streak"
+        android:layout_width="75dp"
+        android:layout_height="40dp"
+        android:layout_toLeftOf="@id/btn_stats_delete"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_stats_losses"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_toLeftOf="@id/tv_stats_streak"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_stats_wins"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_toLeftOf="@id/tv_stats_losses"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_stats_username"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/tv_stats_wins"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:textSize="14sp"
+        android:textColor="#000000" />
+
+</RelativeLayout>

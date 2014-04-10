@@ -6,6 +6,12 @@
     <string name="main_play_button">Start Game</string>
     <string name="main_stats_button">Statistics</string>
 
+    <string name="stats_title">User Statistics</string>
+    <string name="stats_delete">Delete</string>
+    <string name="stats_wins">Wins</string>
+    <string name="stats_losses">Losses</string>
+    <string name="stats_streak">Streak</string>
+
     <string name="number_of_players_select">How many players are there?</string>
     <string name="number_of_players_five">5</string>
     <string name="number_of_players_six">6</string>
@@ -23,6 +29,10 @@
     <string name="new_user_dialog_prompt">New username:</string>
     <string name="new_user_dialog_ok">OK</string>
     <string name="new_user_dialog_cancel">Cancel</string>
+
+    <string name="delete_user_dialog_prompt">Delete %s?</string>
+    <string name="delete_user_dialog_ok">OK</string>
+    <string name="delete_user_dialog_cancel">Cancel</string>
 
     <string name="deal_cards_pass_to">Pass the device to:</string>
     <string name="deal_cards_ok">OK</string>

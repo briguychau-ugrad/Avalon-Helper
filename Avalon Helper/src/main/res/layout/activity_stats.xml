@@ -5,11 +5,64 @@
     android:background="#857d71">
 
     <TextView
-        android:id="@+id/tv_stats_temp"
+        android:id="@+id/tv_stats_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="50sp"
-        android:layout_centerInParent="true"
-        android:text="TESTING" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textSize="30sp"
+        android:text="@string/stats_title" />
+
+    <RelativeLayout
+        android:id="@+id/rl_stats_headings"
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@id/tv_stats_title">
+
+        <TextView
+            android:id="@+id/tv_stats_streak"
+            android:layout_width="75dp"
+            android:layout_height="20dp"
+            android:layout_marginRight="80dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            android:text="@string/stats_streak" />
+
+        <TextView
+            android:id="@+id/tv_stats_losses"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_toLeftOf="@id/tv_stats_streak"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            android:text="@string/stats_losses" />
+
+        <TextView
+            android:id="@+id/tv_stats_wins"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_toLeftOf="@id/tv_stats_losses"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            android:text="@string/stats_wins" />
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lv_stats_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/rl_stats_headings">
+
+    </ListView>
 
 </RelativeLayout>

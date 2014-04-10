@@ -95,6 +95,16 @@ public class MainActivity extends Activity {
         return true;
     }
 
+    public boolean removeUser(User user) {
+        if (!users.contains(user)) {
+            return false;
+        }
+        users.remove(user);
+        saveUsers(users);
+        sortUsers();
+        return true;
+    }
+
     public void saveUsers(List<User> userList) {
         SharedPreferences.Editor editor = getSharedPreferences(SETTINGS, 0).edit();
         Set<String> usernames = new HashSet<String>();

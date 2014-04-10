@@ -62,7 +62,6 @@ public class MerlinGuessActivity extends Activity {
 
     public class GuessMerlinAdapter extends ArrayAdapter<User> {
         public List<User> good;
-        private int selectCount;
 
         public GuessMerlinAdapter(Context context, int resource, int textViewResourceId) {
             super(context, resource, textViewResourceId);

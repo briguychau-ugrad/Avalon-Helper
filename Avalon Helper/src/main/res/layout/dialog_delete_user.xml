@@ -1,0 +1,37 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="105dp"
+    android:background="#333333">
+
+    <TextView
+        android:id="@+id/tv_delete_user_prompt"
+        android:layout_width="280dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp">
+
+        <Button
+            android:id="@+id/btn_delete_user_cancel"
+            android:layout_width="125dp"
+            android:layout_height="30dp"
+            android:background="#cccccc"
+            android:text="@string/new_user_dialog_cancel" />
+
+        <Button
+            android:id="@+id/btn_delete_user_ok"
+            android:layout_width="125dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:background="#cccccc"
+            android:text="@string/new_user_dialog_ok"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
