@@ -28,6 +28,7 @@ public class SelectCardsFragment extends Fragment {
     private MainActivity core;
     private SetupActivity activity;
     private RelativeLayout layout;
+    private RelativeLayout layout2;
 
     private boolean merlinSelected;
     private boolean percivalSelected;
@@ -85,12 +86,14 @@ public class SelectCardsFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         Log.i(TAG, "onActivityCreated");
         layout = (RelativeLayout)activity.findViewById(R.id.rl_select_cards_fragment);
+        layout2 = (RelativeLayout)activity.findViewById(R.id.rl_select_users_fragment);
     }
 
     @Override
     public void onStart() {
         super.onStart();
         Log.i(TAG, "onStart");
+        layout.setVisibility(View.VISIBLE);
         merlinSelected = false;
         percivalSelected = false;
         rickJamesSelected = false;
@@ -129,7 +132,7 @@ public class SelectCardsFragment extends Fragment {
         buttons.add(oberonButton);
         buttons.add(assassinButton);
 
-        core.gameCards = new HashSet<Card>();
+        activity.cards = new HashSet<Card>();
 
         for (ToggleButton b : buttons) {
             b.setChecked(false);
@@ -211,27 +214,37 @@ public class SelectCardsFragment extends Fragment {
         activity.findViewById(R.id.btn_select_cards_ok).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.finishSelectCardsFragment();
+                finishAndGoBack();
             }
         });
 
         drawText();
     }
 
+    public void finishAndGoBack() {
+        core.gameCards = new LinkedList<Card>(activity.cards);
+        for (int i = 0; i < (minionsMax - minionsSelected); i++) {
+            core.gameCards.add(Card.MINION);
+        }
+        for (int i = 0; i < (servantsMax - servantsSelected); i++) {
+            core.gameCards.add(Card.SERVANT);
+        }
+        activity.finishSelectCardsFragment();
+    }
+
     public void toggleCard(boolean selected, Card card) {
         Log.i(TAG, "toggleCard");
         if (selected) {
-            core.gameCards.add(card);
+            activity.cards.add(card);
             servantsSelected += card.good ? 1 : 0;
             minionsSelected += card.good ? 0 : 1;
         } else {
-            core.gameCards.remove(card);
+            activity.cards.remove(card);
             servantsSelected -= card.good ? 1 : 0;
             minionsSelected -= card.good ? 0 : 1;
         }
         drawText();
         disableIfNecessary();
-        System.out.println(core.gameCards);
     }
 
     public void drawText() {
@@ -242,7 +255,7 @@ public class SelectCardsFragment extends Fragment {
     }
 
     public void disableIfNecessary() {
-        if (minionsSelected + servantsSelected > core.numberOfPlayers) {
+        if (minionsSelected + servantsSelected > core.numberOfPlayers || minionsSelected > minionsMax || servantsSelected > servantsMax) {
             for (ToggleButton b : buttons) {
                 if (!b.isChecked()) {
                     b.setEnabled(false);
@@ -264,6 +277,7 @@ public class SelectCardsFragment extends Fragment {
         super.onResume();
         Log.i(TAG, "onResume");
         layout.setVisibility(View.VISIBLE);
+        layout2.setEnabled(false);
     }
 
     @Override
@@ -271,6 +285,7 @@ public class SelectCardsFragment extends Fragment {
         super.onPause();
         Log.i(TAG, "onPause");
         layout.setVisibility(View.GONE);
+        layout2.setEnabled(true);
     }
 
     @Override

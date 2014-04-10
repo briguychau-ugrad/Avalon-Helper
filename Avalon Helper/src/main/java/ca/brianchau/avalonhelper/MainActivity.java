@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
 
     public List<User> users;
     public List<User> gameUsers;
-    public Set<Card> gameCards;
+    public List<Card> gameCards;
     public int numberOfPlayers;
 
     @Override

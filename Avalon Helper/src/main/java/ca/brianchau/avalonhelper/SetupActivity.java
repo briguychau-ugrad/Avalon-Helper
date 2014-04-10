@@ -18,10 +18,11 @@ import android.widget.TextView;
 
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.Stack;
 
+import ca.brianchau.avalonhelper.cards.Card;
 import ca.brianchau.avalonhelper.fragments.NumberOfPlayersFragment;
 import ca.brianchau.avalonhelper.fragments.SelectCardsFragment;
 import ca.brianchau.avalonhelper.fragments.SelectUsersFragment;
@@ -36,6 +37,10 @@ public class SetupActivity extends Activity {
     private FrameLayout frame;
     private Stack<Fragment> fragmentStack;
     private SelectUsersAdapter userArrayAdapter;
+    public Set<Card> cards;
+
+    public SetupActivity() {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -25,6 +25,8 @@ public class SelectUsersFragment extends Fragment {
     private MainActivity core;
     private SetupActivity activity;
     private RelativeLayout layout;
+    private RelativeLayout layout2;
+
     private ListView usersListView;
     private Button okButton;
 
@@ -53,6 +55,7 @@ public class SelectUsersFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         Log.i(TAG, "onActivityCreated");
         layout = (RelativeLayout)activity.findViewById(R.id.rl_select_users_fragment);
+        layout2 = (RelativeLayout)activity.findViewById(R.id.rl_number_of_players_fragment);
         usersListView = (ListView)activity.findViewById(R.id.lv_select_users_all);
     }
 
@@ -60,6 +63,7 @@ public class SelectUsersFragment extends Fragment {
     public void onStart() {
         super.onStart();
         Log.i(TAG, "onStart");
+        layout.setVisibility(View.VISIBLE);
         activity.findViewById(R.id.btn_select_users_new).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,6 +97,7 @@ public class SelectUsersFragment extends Fragment {
         super.onResume();
         Log.i(TAG, "onResume");
         layout.setVisibility(View.VISIBLE);
+        layout2.setEnabled(false);
     }
 
     @Override
@@ -100,6 +105,7 @@ public class SelectUsersFragment extends Fragment {
         super.onPause();
         Log.i(TAG, "onPause");
         layout.setVisibility(View.GONE);
+        layout2.setEnabled(true);
     }
 
     @Override

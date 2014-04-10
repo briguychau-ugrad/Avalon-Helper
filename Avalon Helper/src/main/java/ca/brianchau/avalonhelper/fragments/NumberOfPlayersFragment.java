@@ -53,6 +53,7 @@ public class NumberOfPlayersFragment extends Fragment {
     public void onStart() {
         super.onStart();
         Log.i(TAG, "onStart");
+        layout.setVisibility(View.VISIBLE);
         activity.findViewById(R.id.btn_number_of_players_five).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
