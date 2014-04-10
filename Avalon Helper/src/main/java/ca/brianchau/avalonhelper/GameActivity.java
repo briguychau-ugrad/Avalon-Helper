@@ -1,6 +1,7 @@
 package ca.brianchau.avalonhelper;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -127,6 +128,12 @@ public class GameActivity extends Activity {
             }
         });
 
+        ((TextView)findViewById(R.id.tv_game_mission2_prompt)).setText(String.format(getString(R.string.game_mission_players), MISSIONS[core.numberOfPlayers][2]));
+        ((TextView)findViewById(R.id.tv_game_mission3_prompt)).setText(String.format(getString(R.string.game_mission_players), MISSIONS[core.numberOfPlayers][3]));
+        ((TextView)findViewById(R.id.tv_game_mission4_prompt)).setText(String.format(getString(R.string.game_mission_players), MISSIONS[core.numberOfPlayers][4]));
+        ((TextView)findViewById(R.id.tv_game_mission5_prompt)).setText(String.format(getString(R.string.game_mission_players), MISSIONS[core.numberOfPlayers][5]));
+        findViewById(R.id.tv_game_mission4_two_fail).setVisibility(core.numberOfPlayers >= TWO_FAIL_PLAYERS ? View.VISIBLE : View.GONE);
+
         fails = 0;
         passes = 0;
         rejects = 0;
@@ -193,6 +200,8 @@ public class GameActivity extends Activity {
     }
 
     public void endGame(boolean win) {
+        Intent i = new Intent(getApplicationContext(), EndGameActivity.class);
+        startActivity(i);
         finish();
     }
 

@@ -187,6 +187,15 @@
                     android:textColor="#000000"
                     android:text="@string/game_mission_2" />
 
+                <TextView
+                    android:id="@+id/tv_game_mission2_prompt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="70dp"
+                    android:textSize="30sp"
+                    android:textColor="#000000" />
+
             </RelativeLayout>
 
         </RelativeLayout>
@@ -211,6 +220,15 @@
                     android:textSize="50sp"
                     android:textColor="#000000"
                     android:text="@string/game_mission_3" />
+
+                <TextView
+                    android:id="@+id/tv_game_mission3_prompt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="70dp"
+                    android:textSize="30sp"
+                    android:textColor="#000000" />
 
             </RelativeLayout>
 
@@ -237,6 +255,26 @@
                     android:textColor="#000000"
                     android:text="@string/game_mission_4" />
 
+                <TextView
+                    android:id="@+id/tv_game_mission4_prompt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="70dp"
+                    android:textSize="30sp"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/tv_game_mission4_two_fail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_alignParentBottom="true"
+                    android:textSize="15sp"
+                    android:textColor="#000000"
+                    android:text="@string/game_two_fail_mission" />
+
             </RelativeLayout>
 
         </RelativeLayout>
@@ -261,6 +299,15 @@
                     android:textSize="50sp"
                     android:textColor="#000000"
                     android:text="@string/game_mission_5" />
+
+                <TextView
+                    android:id="@+id/tv_game_mission5_prompt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="70dp"
+                    android:textSize="30sp"
+                    android:textColor="#000000" />
 
             </RelativeLayout>
 
